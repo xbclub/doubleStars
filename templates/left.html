@@ -1,0 +1,346 @@
+<html lang="en">
+
+<!-- begin::Head -->
+<head>
+
+    <!--begin::Base Path (base relative path for static/assets of this page) -->
+    <base href="../">
+
+    <!--end::Base Path -->
+    <meta charset="utf-8"/>
+    <title>进销存后台管理系统</title>
+    <meta name="description" content="Updates and statistics">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!--begin::Fonts -->
+    <!--		<script src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.16/webfont.js"></script>-->
+    <!--		<script>-->
+    <!--			WebFont.load({-->
+    <!--				google: {-->
+    <!--					"families": ["Poppins:300,400,500,600,700", "Roboto:300,400,500,600,700"]-->
+    <!--				},-->
+    <!--				active: function() {-->
+    <!--					sessionStorage.fonts = true;-->
+    <!--				}-->
+    <!--			});-->
+    <!--		</script>-->
+
+    <!--end::Fonts -->
+
+    <!--begin::Page Vendors Styles(used by this page) -->
+    <link href="/static/assets/vendors/custom/fullcalendar/fullcalendar.bundle.css" rel="stylesheet"
+          type="text/css"/>
+
+    <!--end::Page Vendors Styles -->
+
+    <!--begin::Global Theme Styles(used by all pages) -->
+    <link href="/static/assets/vendors/global/vendors.bundle.css" rel="stylesheet" type="text/css"/>
+    <link href="/static/assets/css/demo1/style.bundle.css" rel="stylesheet" type="text/css"/>
+
+    <!--end::Global Theme Styles -->
+
+    <!--begin::Layout Skins(used by all pages) -->
+    <link href="/static/assets/css/demo1/skins/header/base/light.css" rel="stylesheet" type="text/css"/>
+    <link href="/static/assets/css/demo1/skins/header/menu/light.css" rel="stylesheet" type="text/css"/>
+    <link href="/static/assets/css/demo1/skins/brand/dark.css" rel="stylesheet" type="text/css"/>
+    <link href="/static/assets/css/demo1/skins/aside/dark.css" rel="stylesheet" type="text/css"/>
+
+    <!--end::Layout Skins -->
+    <link rel="shortcut icon" href="/static/assets/media/logos/favicon.ico"/>
+    <script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdn.bootcss.com/vue/2.6.10/vue.min.js"></script>
+    <script src="/static/layer/layer.js"></script>
+</head>
+
+<!-- end::Head -->
+
+<!-- begin::Body -->
+<body class="kt-quick-panel--right kt-demo-panel--right kt-offcanvas-panel--right kt-header--fixed kt-header-mobile--fixed kt-subheader--fixed kt-subheader--enabled kt-subheader--solid kt-aside--enabled kt-aside--fixed kt-page--loading">
+
+<!-- begin:: Page -->
+
+<!-- begin:: Header Mobile -->
+<div id="kt_header_mobile" class="kt-header-mobile  kt-header-mobile--fixed ">
+    <div class="kt-header-mobile__logo">
+        <a href="demo1/index.html">
+            <img alt="Logo" src="/static/assets/media/logos/logo-light.png"/>
+        </a>
+    </div>
+    <div class="kt-header-mobile__toolbar">
+        <button class="kt-header-mobile__toggler kt-header-mobile__toggler--left" id="kt_aside_mobile_toggler">
+            <span></span></button>
+        <button class="kt-header-mobile__toggler" id="kt_header_mobile_toggler"><span></span></button>
+        <button class="kt-header-mobile__topbar-toggler" id="kt_header_mobile_topbar_toggler"><i
+                class="flaticon-more"></i></button>
+    </div>
+</div>
+
+<!-- end:: Header Mobile -->
+<div class="kt-grid kt-grid--hor kt-grid--root">
+    <div class="kt-grid__item kt-grid__item--fluid kt-grid kt-grid--ver kt-page">
+
+        <!-- begin:: Aside -->
+        <button class="kt-aside-close " id="kt_aside_close_btn"><i class="la la-close"></i></button>
+        <div class="kt-aside  kt-aside--fixed  kt-grid__item kt-grid kt-grid--desktop kt-grid--hor-desktop"
+             id="kt_aside">
+
+            <!-- begin:: Aside -->
+            <div class="kt-aside__brand kt-grid__item " id="kt_aside_brand">
+                <div class="kt-aside__brand-logo">
+                    <a href="demo1/index.html">
+                        <img alt="Logo" src="/static/assets/media/logos/logo-light.png"/>
+                    </a>
+                </div>
+                <div class="kt-aside__brand-tools">
+                    <button class="kt-aside__brand-aside-toggler" id="kt_aside_toggler">
+								<span><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                                           width="24px" height="24px" viewBox="0 0 24 24" version="1.1"
+                                           class="kt-svg-icon">
+										<g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+											<polygon id="Shape" points="0 0 24 0 24 24 0 24"/>
+											<path d="M5.29288961,6.70710318 C4.90236532,6.31657888 4.90236532,5.68341391 5.29288961,5.29288961 C5.68341391,4.90236532 6.31657888,4.90236532 6.70710318,5.29288961 L12.7071032,11.2928896 C13.0856821,11.6714686 13.0989277,12.281055 12.7371505,12.675721 L7.23715054,18.675721 C6.86395813,19.08284 6.23139076,19.1103429 5.82427177,18.7371505 C5.41715278,18.3639581 5.38964985,17.7313908 5.76284226,17.3242718 L10.6158586,12.0300721 L5.29288961,6.70710318 Z"
+                                                  id="Path-94" fill="#000000" fill-rule="nonzero"
+                                                  transform="translate(8.999997, 11.999999) scale(-1, 1) translate(-8.999997, -11.999999) "/>
+											<path d="M10.7071009,15.7071068 C10.3165766,16.0976311 9.68341162,16.0976311 9.29288733,15.7071068 C8.90236304,15.3165825 8.90236304,14.6834175 9.29288733,14.2928932 L15.2928873,8.29289322 C15.6714663,7.91431428 16.2810527,7.90106866 16.6757187,8.26284586 L22.6757187,13.7628459 C23.0828377,14.1360383 23.1103407,14.7686056 22.7371482,15.1757246 C22.3639558,15.5828436 21.7313885,15.6103465 21.3242695,15.2371541 L16.0300699,10.3841378 L10.7071009,15.7071068 Z"
+                                                  id="Path-94" fill="#000000" fill-rule="nonzero" opacity="0.3"
+                                                  transform="translate(15.999997, 11.999999) scale(-1, 1) rotate(-270.000000) translate(-15.999997, -11.999999) "/>
+										</g>
+									</svg></span>
+                        <span><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                                   width="24px" height="24px" viewBox="0 0 24 24" version="1.1" class="kt-svg-icon">
+										<g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+											<polygon id="Shape" points="0 0 24 0 24 24 0 24"/>
+											<path d="M12.2928955,6.70710318 C11.9023712,6.31657888 11.9023712,5.68341391 12.2928955,5.29288961 C12.6834198,4.90236532 13.3165848,4.90236532 13.7071091,5.29288961 L19.7071091,11.2928896 C20.085688,11.6714686 20.0989336,12.281055 19.7371564,12.675721 L14.2371564,18.675721 C13.863964,19.08284 13.2313966,19.1103429 12.8242777,18.7371505 C12.4171587,18.3639581 12.3896557,17.7313908 12.7628481,17.3242718 L17.6158645,12.0300721 L12.2928955,6.70710318 Z"
+                                                  id="Path-94" fill="#000000" fill-rule="nonzero"/>
+											<path d="M3.70710678,15.7071068 C3.31658249,16.0976311 2.68341751,16.0976311 2.29289322,15.7071068 C1.90236893,15.3165825 1.90236893,14.6834175 2.29289322,14.2928932 L8.29289322,8.29289322 C8.67147216,7.91431428 9.28105859,7.90106866 9.67572463,8.26284586 L15.6757246,13.7628459 C16.0828436,14.1360383 16.1103465,14.7686056 15.7371541,15.1757246 C15.3639617,15.5828436 14.7313944,15.6103465 14.3242754,15.2371541 L9.03007575,10.3841378 L3.70710678,15.7071068 Z"
+                                                  id="Path-94" fill="#000000" fill-rule="nonzero" opacity="0.3"
+                                                  transform="translate(9.000003, 11.999999) rotate(-270.000000) translate(-9.000003, -11.999999) "/>
+										</g>
+									</svg></span>
+                    </button>
+
+                    <!--
+			<button class="kt-aside__brand-aside-toggler kt-aside__brand-aside-toggler--left" id="kt_aside_toggler"><span></span></button>
+			-->
+                </div>
+            </div>
+
+            <!-- end:: Aside -->
+
+            <!-- begin:: Aside Menu -->
+            <div class="kt-aside-menu-wrapper kt-grid__item kt-grid__item--fluid" id="kt_aside_menu_wrapper">
+                <div id="kt_aside_menu" class="kt-aside-menu " data-ktmenu-vertical="1" data-ktmenu-scroll="1"
+                     data-ktmenu-dropdown-timeout="500">
+                    <ul class="kt-menu__nav ">
+                        <li class="kt-menu__item  kt-menu__item--active" aria-haspopup="true"><a href="demo1/index.html"
+                                                                                                 class="kt-menu__link "><span
+                                class="kt-menu__link-icon"><svg xmlns="http://www.w3.org/2000/svg"
+                                                                xmlns:xlink="http://www.w3.org/1999/xlink" width="24px"
+                                                                height="24px" viewBox="0 0 24 24" version="1.1"
+                                                                class="kt-svg-icon">
+												<g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+													<polygon id="Bound" points="0 0 24 0 24 24 0 24"/>
+													<path d="M12.9336061,16.072447 L19.36,10.9564761 L19.5181585,10.8312381 C20.1676248,10.3169571 20.2772143,9.3735535 19.7629333,8.72408713 C19.6917232,8.63415859 19.6104327,8.55269514 19.5206557,8.48129411 L12.9336854,3.24257445 C12.3871201,2.80788259 11.6128799,2.80788259 11.0663146,3.24257445 L4.47482784,8.48488609 C3.82645598,9.00054628 3.71887192,9.94418071 4.23453211,10.5925526 C4.30500305,10.6811601 4.38527899,10.7615046 4.47382636,10.8320511 L4.63,10.9564761 L11.0659024,16.0730648 C11.6126744,16.5077525 12.3871218,16.5074963 12.9336061,16.072447 Z"
+                                                          id="Shape" fill="#000000" fill-rule="nonzero"/>
+													<path d="M11.0563554,18.6706981 L5.33593024,14.122919 C4.94553994,13.8125559 4.37746707,13.8774308 4.06710397,14.2678211 C4.06471678,14.2708238 4.06234874,14.2738418 4.06,14.2768747 L4.06,14.2768747 C3.75257288,14.6738539 3.82516916,15.244888 4.22214834,15.5523151 C4.22358765,15.5534297 4.2250303,15.55454 4.22647627,15.555646 L11.0872776,20.8031356 C11.6250734,21.2144692 12.371757,21.2145375 12.909628,20.8033023 L19.7677785,15.559828 C20.1693192,15.2528257 20.2459576,14.6784381 19.9389553,14.2768974 C19.9376429,14.2751809 19.9363245,14.2734691 19.935,14.2717619 L19.935,14.2717619 C19.6266937,13.8743807 19.0546209,13.8021712 18.6572397,14.1104775 C18.654352,14.112718 18.6514778,14.1149757 18.6486172,14.1172508 L12.9235044,18.6705218 C12.377022,19.1051477 11.6029199,19.1052208 11.0563554,18.6706981 Z"
+                                                          id="Path" fill="#000000" opacity="0.3"/>
+												</g>
+											</svg></span><span class="kt-menu__link-text">控制台</span></a></li>
+                        <li class="kt-menu__section ">
+                            <h4 class="kt-menu__section-text">功能模块</h4>
+                            <i class="kt-menu__section-icon flaticon-more-v2"></i>
+                        </li>
+                        <li class="kt-menu__item " aria-haspopup="true">
+                            <a href="/users/cate.html"
+                               class="kt-menu__link ">
+                            <span class="kt-menu__link-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                                     width="24px" height="24px" viewBox="0 0 24 24" version="1.1" class="kt-svg-icon">
+    <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <rect id="bound" x="0" y="0" width="24" height="24"/>
+        <path d="M15.9956071,6 L9,6 C7.34314575,6 6,7.34314575 6,9 L6,15.9956071 C4.70185442,15.9316381 4,15.1706419 4,13.8181818 L4,6.18181818 C4,4.76751186 4.76751186,4 6.18181818,4 L13.8181818,4 C15.1706419,4 15.9316381,4.70185442 15.9956071,6 Z"
+              id="Combined-Shape" fill="#000000" fill-rule="nonzero" opacity="0.3"/>
+        <path d="M10.1818182,8 L17.8181818,8 C19.2324881,8 20,8.76751186 20,10.1818182 L20,17.8181818 C20,19.2324881 19.2324881,20 17.8181818,20 L10.1818182,20 C8.76751186,20 8,19.2324881 8,17.8181818 L8,10.1818182 C8,8.76751186 8.76751186,8 10.1818182,8 Z"
+              id="Rectangle-19-Copy-3" fill="#000000"/>
+    </g>
+                                </svg>
+                                </span>
+                                <span class="kt-menu__link-text">分类管理</span>
+                            </a>
+                        </li>
+                        <li class="kt-menu__item " aria-haspopup="true">
+                            <a href="https://keenthemes.com/metronic/preview/demo1/builder.html"
+                               class="kt-menu__link ">
+                            <span class="kt-menu__link-icon">
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px"
+     viewBox="0 0 24 24" version="1.1" class="kt-svg-icon">
+    <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <rect id="bound" x="0" y="0" width="24" height="24"/>
+        <path d="M18.1446364,11.84388 L17.4471627,16.0287218 C17.4463569,16.0335568 17.4455155,16.0383857 17.4446387,16.0432083 C17.345843,16.5865846 16.8252597,16.9469884 16.2818833,16.8481927 L4.91303792,14.7811299 C4.53842737,14.7130189 4.23500006,14.4380834 4.13039941,14.0719812 L2.30560137,7.68518803 C2.28007524,7.59584656 2.26712532,7.50338343 2.26712532,7.4104669 C2.26712532,6.85818215 2.71484057,6.4104669 3.26712532,6.4104669 L16.9929851,6.4104669 L17.606173,3.78251876 C17.7307772,3.24850086 18.2068633,2.87071314 18.7552257,2.87071314 L20.8200821,2.87071314 C21.4717328,2.87071314 22,3.39898039 22,4.05063106 C22,4.70228173 21.4717328,5.23054898 20.8200821,5.23054898 L19.6915238,5.23054898 L18.1446364,11.84388 Z"
+              id="Combined-Shape" fill="#000000" opacity="0.3"/>
+        <path d="M6.5,21 C5.67157288,21 5,20.3284271 5,19.5 C5,18.6715729 5.67157288,18 6.5,18 C7.32842712,18 8,18.6715729 8,19.5 C8,20.3284271 7.32842712,21 6.5,21 Z M15.5,21 C14.6715729,21 14,20.3284271 14,19.5 C14,18.6715729 14.6715729,18 15.5,18 C16.3284271,18 17,18.6715729 17,19.5 C17,20.3284271 16.3284271,21 15.5,21 Z"
+              id="Combined-Shape" fill="#000000"/>
+    </g>
+</svg>
+
+                            </span>
+                                <span class="kt-menu__link-text">销售管理</span>
+                            </a>
+                        </li>
+                        <li class="kt-menu__item " aria-haspopup="true">
+                            <a href="/users/cangku.html"
+                               class="kt-menu__link ">
+                            <span class="kt-menu__link-icon">
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px"
+     viewBox="0 0 24 24" version="1.1" class="kt-svg-icon">
+    <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <rect id="bound" x="0" y="0" width="24" height="24"/>
+        <path d="M7,5 L17,5 C17.5522847,5 18,5.44771525 18,6 C18,6.55228475 17.5522847,7 17,7 L7,7 C6.44771525,7 6,6.55228475 6,6 C6,5.44771525 6.44771525,5 7,5 Z M7,9 L17,9 C17.5522847,9 18,9.44771525 18,10 C18,10.5522847 17.5522847,11 17,11 L7,11 C6.44771525,11 6,10.5522847 6,10 C6,9.44771525 6.44771525,9 7,9 Z M7,13 L17,13 C17.5522847,13 18,13.4477153 18,14 C18,14.5522847 17.5522847,15 17,15 L7,15 C6.44771525,15 6,14.5522847 6,14 C6,13.4477153 6.44771525,13 7,13 Z M7,17 L17,17 C17.5522847,17 18,17.4477153 18,18 C18,18.5522847 17.5522847,19 17,19 L7,19 C6.44771525,19 6,18.5522847 6,18 C6,17.4477153 6.44771525,17 7,17 Z"
+              id="Combined-Shape" fill="#000000" opacity="0.3"/>
+        <path d="M5.5,2 C6.32842712,2 7,2.67157288 7,3.5 L7,20.5 C7,21.3284271 6.32842712,22 5.5,22 C4.67157288,22 4,21.3284271 4,20.5 L4,3.5 C4,2.67157288 4.67157288,2 5.5,2 Z M18.5,2 C19.3284271,2 20,2.67157288 20,3.5 L20,20.5 C20,21.3284271 19.3284271,22 18.5,22 C17.6715729,22 17,21.3284271 17,20.5 L17,3.5 C17,2.67157288 17.6715729,2 18.5,2 Z"
+              id="Combined-Shape" fill="#000000"/>
+    </g>
+</svg>
+
+                            </span>
+                                <span class="kt-menu__link-text">货架管理</span>
+                            </a>
+                        </li>
+
+                        <li class="kt-menu__item " aria-haspopup="true">
+                            <a href="https://keenthemes.com/metronic/preview/demo1/builder.html"
+                               class="kt-menu__link ">
+                            <span class="kt-menu__link-icon">
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px"
+     viewBox="0 0 24 24" version="1.1" class="kt-svg-icon">
+    <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <rect id="bound" x="0" y="0" width="24" height="24"/>
+        <path d="M3.95709826,8.41510662 L11.47855,3.81866389 C11.7986624,3.62303967 12.2013376,3.62303967 12.52145,3.81866389 L20.0429,8.41510557 C20.6374094,8.77841684 21,9.42493654 21,10.1216692 L21,19.0000642 C21,20.1046337 20.1045695,21.0000642 19,21.0000642 L4.99998155,21.0000673 C3.89541205,21.0000673 2.99998155,20.1046368 2.99998155,19.0000673 C2.99998155,19.0000663 2.99998155,19.0000652 2.99998155,19.0000642 L2.99999828,10.1216672 C2.99999935,9.42493561 3.36258984,8.77841732 3.95709826,8.41510662 Z"
+              id="Combined-Shape" fill="#000000" opacity="0.3"/>
+        <path d="M13.8,12 C13.1562,12 12.4033,12.7298529 12,13.2 C11.5967,12.7298529 10.8438,12 10.2,12 C9.0604,12 8.4,12.8888719 8.4,14.0201635 C8.4,15.2733878 9.6,16.6 12,18 C14.4,16.6 15.6,15.3 15.6,14.1 C15.6,12.9687084 14.9396,12 13.8,12 Z"
+              id="Shape" fill="#000000" opacity="0.3"/>
+    </g>
+</svg>
+
+                            </span>
+                                <span class="kt-menu__link-text">库存管理</span>
+                            </a>
+                        </li>
+                        <li class="kt-menu__item " aria-haspopup="true">
+                            <a href="/users/vip.html"
+                               class="kt-menu__link ">
+                            <span class="kt-menu__link-icon">
+                               <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1" class="kt-svg-icon">
+    <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <polygon id="Shape" points="0 0 24 0 24 24 0 24"/>
+        <path d="M18,14 C16.3431458,14 15,12.6568542 15,11 C15,9.34314575 16.3431458,8 18,8 C19.6568542,8 21,9.34314575 21,11 C21,12.6568542 19.6568542,14 18,14 Z M9,11 C6.790861,11 5,9.209139 5,7 C5,4.790861 6.790861,3 9,3 C11.209139,3 13,4.790861 13,7 C13,9.209139 11.209139,11 9,11 Z" id="Combined-Shape" fill="#000000" fill-rule="nonzero" opacity="0.3"/>
+        <path d="M17.6011961,15.0006174 C21.0077043,15.0378534 23.7891749,16.7601418 23.9984937,20.4 C24.0069246,20.5466056 23.9984937,21 23.4559499,21 L19.6,21 C19.6,18.7490654 18.8562935,16.6718327 17.6011961,15.0006174 Z M0.00065168429,20.1992055 C0.388258525,15.4265159 4.26191235,13 8.98334134,13 C13.7712164,13 17.7048837,15.2931929 17.9979143,20.2 C18.0095879,20.3954741 17.9979143,21 17.2466999,21 C13.541124,21 8.03472472,21 0.727502227,21 C0.476712155,21 -0.0204617505,20.45918 0.00065168429,20.1992055 Z" id="Combined-Shape" fill="#000000" fill-rule="nonzero"/>
+    </g>
+</svg>
+                            </span>
+                                <span class="kt-menu__link-text">会员管理</span>
+                            </a>
+                        </li>
+                        <li class="kt-menu__item " aria-haspopup="true">
+                            <a href="https://keenthemes.com/metronic/preview/demo1/builder.html"
+                               class="kt-menu__link ">
+                            <span class="kt-menu__link-icon">
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px"
+     viewBox="0 0 24 24" version="1.1" class="kt-svg-icon">
+    <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <polygon id="Shape" points="0 0 24 0 24 24 0 24"/>
+        <path d="M12,11 C9.790861,11 8,9.209139 8,7 C8,4.790861 9.790861,3 12,3 C14.209139,3 16,4.790861 16,7 C16,9.209139 14.209139,11 12,11 Z"
+              id="Mask" fill="#000000" fill-rule="nonzero" opacity="0.3"/>
+        <path d="M3.00065168,20.1992055 C3.38825852,15.4265159 7.26191235,13 11.9833413,13 C16.7712164,13 20.7048837,15.2931929 20.9979143,20.2 C21.0095879,20.3954741 20.9979143,21 20.2466999,21 C16.541124,21 11.0347247,21 3.72750223,21 C3.47671215,21 2.97953825,20.45918 3.00065168,20.1992055 Z"
+              id="Mask-Copy" fill="#000000" fill-rule="nonzero"/>
+    </g>
+</svg>
+
+                            </span>
+                                <span class="kt-menu__link-text">用户管理</span>
+                            </a>
+                        </li>
+
+                        <li class="kt-menu__item " aria-haspopup="true">
+                            <a href="https://keenthemes.com/metronic/preview/demo1/builder.html"
+                               class="kt-menu__link ">
+                            <span class="kt-menu__link-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                                     width="24px" height="24px" viewBox="0 0 24 24" version="1.1" class="kt-svg-icon">
+    <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <rect id="bound" x="0" y="0" width="24" height="24"/>
+        <path d="M7.62302337,5.30262097 C8.08508802,5.000107 8.70490146,5.12944838 9.00741543,5.59151303 C9.3099294,6.05357769 9.18058801,6.67339112 8.71852336,6.97590509 C7.03468892,8.07831239 6,9.95030239 6,12 C6,15.3137085 8.6862915,18 12,18 C15.3137085,18 18,15.3137085 18,12 C18,9.99549229 17.0108275,8.15969002 15.3875704,7.04698597 C14.9320347,6.73472706 14.8158858,6.11230651 15.1281448,5.65677076 C15.4404037,5.20123501 16.0628242,5.08508618 16.51836,5.39734508 C18.6800181,6.87911023 20,9.32886071 20,12 C20,16.418278 16.418278,20 12,20 C7.581722,20 4,16.418278 4,12 C4,9.26852332 5.38056879,6.77075716 7.62302337,5.30262097 Z"
+              id="Oval-25" fill="#000000" fill-rule="nonzero"/>
+        <rect id="Rectangle" fill="#000000" opacity="0.3" x="11" y="3" width="2" height="10" rx="1"/>
+    </g>
+</svg>
+
+
+                            </span>
+                                <span class="kt-menu__link-text">退出登录</span>
+                            </a>
+                        </li>
+
+                    </ul>
+                </div>
+            </div>
+
+            <!-- end:: Aside Menu -->
+        </div>
+
+        <!-- end:: Aside -->
+        <div class="kt-grid__item kt-grid__item--fluid kt-grid kt-grid--hor kt-wrapper" id="kt_wrapper">
+
+            <!-- begin:: Header -->
+            <div id="kt_header" class="kt-header kt-grid__item  kt-header--fixed ">
+
+                <!-- begin:: Header Menu -->
+                <button class="kt-header-menu-wrapper-close" id="kt_header_menu_mobile_close_btn"><i
+                        class="la la-close"></i></button>
+                <div class="kt-header-menu-wrapper" id="kt_header_menu_wrapper">
+                    <div id="kt_header_menu"
+                         class="kt-header-menu kt-header-menu-mobile  kt-header-menu--layout-default ">
+                        <ul class="kt-menu__nav ">
+                            <li class="kt-menu__item  kt-menu__item--open kt-menu__item--here kt-menu__item--submenu kt-menu__item--rel kt-menu__item--open kt-menu__item--here kt-menu__item--active"
+                                data-ktmenu-submenu-toggle="click" aria-haspopup="true"><a href="javascript:;"
+                                                                                           class="kt-menu__link kt-menu__toggle"><span
+                                    class="kt-menu__link-text">欢迎来到进销存后台管理系统</span><i
+                                    class="kt-menu__ver-arrow la la-angle-right"></i></a>
+
+                            </li>
+
+
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- end:: Header Menu -->
+
+                <!-- begin:: Header Topbar -->
+                <div class="kt-header__topbar">
+                    <!--begin: User Bar -->
+                    <div class="kt-header__topbar-item kt-header__topbar-item--user">
+                        <div class="kt-header__topbar-wrapper" data-offset="0px,0px">
+                            <div class="kt-header__topbar-user">
+                                <span class="kt-header__topbar-welcome kt-hidden-mobile">Hi,</span>
+                                <span class="kt-header__topbar-username kt-hidden-mobile">超级管理员</span>
+                                <img class="kt-hidden" alt="Pic" src="/static/assets/media/users/300_25.jpg"/>
+
+                                <!--use below badge element instead the user avatar to display username's first letter(remove kt-hidden class to display it) -->
+                                <span class="kt-badge kt-badge--username kt-badge--unified-success kt-badge--lg kt-badge--rounded kt-badge--bold">S</span>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <!--end: User Bar -->
+                </div>
+
+                <!-- end:: Header Topbar -->
+            </div>
+            </title>
+            </head>
+            <body>
+
+            </body>
+</html>

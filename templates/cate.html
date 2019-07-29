@@ -1,0 +1,409 @@
+{% include 'left.html' %}
+<!-- end:: Header -->
+<div class="kt-grid__item kt-grid__item--fluid kt-grid kt-grid--hor">
+
+    <!-- begin:: Subheader -->
+    <div class="kt-subheader   kt-grid__item" id="kt_subheader">
+        <div class="kt-subheader__main">
+            <h3 class="kt-subheader__title">
+                当前位置 </h3>
+            <span class="kt-subheader__separator kt-hidden"></span>
+            <div class="kt-subheader__breadcrumbs">
+                <a href="#" class="kt-subheader__breadcrumbs-home"><i class="flaticon2-shelter"></i></a>
+                <span class="kt-subheader__breadcrumbs-separator"></span>
+                <a href="../users" class="kt-subheader__breadcrumbs-link">
+                    分类管理 </a>
+                {#                            <span class="kt-subheader__breadcrumbs-separator"></span>#}
+                {#                            <a href="" class="kt-subheader__breadcrumbs-link">#}
+                {#                                KTDatatable </a>#}
+                {#                            <span class="kt-subheader__breadcrumbs-separator"></span>#}
+                {#                            <a href="" class="kt-subheader__breadcrumbs-link">#}
+                {#                                Base </a>#}
+                {#                            <span class="kt-subheader__breadcrumbs-separator"></span>#}
+                {#                            <a href="" class="kt-subheader__breadcrumbs-link">#}
+                {#                                Local Data </a>#}
+
+                <!-- <span class="kt-subheader__breadcrumbs-link kt-subheader__breadcrumbs-link--active">Active link</span> -->
+            </div>
+        </div>
+
+    </div>
+
+    <!-- end:: Subheader -->
+
+    <!-- begin:: Content -->
+    <div class="kt-content  kt-grid__item kt-grid__item--fluid" id="kt_content">
+        <div class="kt-portlet kt-portlet--mobile">
+            <div class="kt-portlet__head kt-portlet__head--lg">
+                <div class="kt-portlet__head-label">
+										<span class="kt-portlet__head-icon">
+											<i class="kt-font-brand flaticon2-line-chart"></i>
+										</span>
+                    <h3 class="kt-portlet__head-title">
+                        分类信息列表
+                    </h3>
+                </div>
+                <div class="kt-portlet__head-toolbar">
+                    <div class="kt-portlet__head-wrapper">
+                        <div class="dropdown dropdown-inline">
+
+                            <div class="kt-input-icon kt-input-icon--left">
+
+                                <input type="text" class="form-control" id="searchit" placeholder="在此输入分类名进行搜索" name="cname" v-model="cname">
+
+                                <span class="kt-input-icon__icon kt-input-icon__icon--left">
+															<span><i class="la la-search"></i></span>
+														</span>
+                            </div>
+                        </div>
+                        &nbsp;
+                        <div class="dropdown dropdown-inline">
+                            <button class="btn btn-brand btn-icon-sm" data-toggle="modal" data-target="#kt_modal_4"
+                                    aria-haspopup="true" aria-expanded="false">
+                                <i class="flaticon2-plus"></i> 添加
+                            </button>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <!--                        <div class="kt-portlet__body kt-portlet__body&#45;&#45;fit">-->
+
+            <!--                            &lt;!&ndash;begin: Datatable &ndash;&gt;-->
+            <!--                            <div class="kt-datatable" id="local_data"></div>-->
+
+            <!--                            &lt;!&ndash;end: Datatable &ndash;&gt;-->
+            <!--                        </div>-->
+            <div class="kt-datatable kt-datatable--default kt-datatable--brand kt-datatable--loaded"
+                 id="local_data" style="">
+                <table class="kt-datatable__table" style="display: block; min-height: 500px;" id="tablelist">
+                    <thead class="kt-datatable__head">
+                    <tr class="kt-datatable__row" style="left: 0px;">
+
+                        <th data-field="OrderID" class="kt-datatable__cell kt-datatable__cell--sort">
+					<span style="width: 146px;">
+						<font style="vertical-align: inherit;">
+							<font style="vertical-align: inherit;">
+								ID
+							</font>
+						</font>
+					</span>
+                        </th>
+                        <th data-field="OrderID" class="kt-datatable__cell kt-datatable__cell--sort">
+					<span style="width: 146px;">
+						<font style="vertical-align: inherit;">
+							<font style="vertical-align: inherit;">
+								分类名
+							</font>
+						</font>
+					</span>
+                        </th>
+                        <th data-field="OrderID" class="kt-datatable__cell kt-datatable__cell--sort">
+					<span style="width: 146px;">
+						<font style="vertical-align: inherit;">
+							<font style="vertical-align: inherit;">
+								操作
+							</font>
+						</font>
+					</span>
+                        </th>
+
+                    </tr>
+                    </thead>
+                    <tbody class="kt-datatable__body" style="">
+                    <tr data-row="0" class="kt-datatable__row" style="left: 0px;" v-for="list,index in lists">
+                        <td class="kt-datatable__cell">
+					                    <span style="width: 146px;">
+						                    <font style="vertical-align: inherit;">
+								                        {{ list.cid }}
+						                    </font>
+					                    </span>
+                        </td>
+                        <td class="kt-datatable__cell">
+                            <span style="width: 146px;">
+                                <font style="vertical-align: inherit;">
+								    {{ list.cname }}
+						        </font>
+					        </span>
+                        </td>
+                        <td data-field="Actions" data-autohide-disabled="false" class="kt-datatable__cell">
+					        <span style="overflow: visible; position: relative; width: 110px;">
+
+						        <button class="btn btn-sm btn-clean btn-icon btn-icon-md" data-toggle="kt-popover"
+                                    data-placement="bottom" data-content="编辑" @click="editit(list.cname,list.cid,index)">
+							        <i class="la la-edit">
+							        </i>
+						        </button>
+						        <button class="btn btn-sm btn-clean btn-icon btn-icon-md" data-toggle="kt-popover"
+                                    data-placement="bottom" data-content="删除" @click="delit(list.cid,index)">
+							        <i class="la la-trash">
+							        </i>
+                                </button>
+					        </span>
+                        </td>
+                    </tr>
+
+
+                    </tbody>
+                </table>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- end:: Content -->
+</div>
+</div>
+</div>
+
+<!-- end:: Page -->
+
+<!-- begin::Quick Panel -->
+
+
+<!-- end::Quick Panel -->
+
+<!-- begin::Scrolltop -->
+<div id="kt_scrolltop" class="kt-scrolltop">
+    <i class="fa fa-arrow-up"></i>
+</div>
+
+<!-- end::Scrolltop -->
+
+<!-- begin::Sticky Toolbar -->
+{#    <ul class="kt-sticky-toolbar" style="margin-top: 30px;">#}
+{#        <li class="kt-sticky-toolbar__item kt-sticky-toolbar__item--success" id="kt_demo_panel_toggle"#}
+{#            data-toggle="kt-tooltip" title="Check out more demos" data-placement="right">#}
+{#            <a href="#" class=""><i class="flaticon2-drop"></i></a>#}
+{#        </li>#}
+{#        <li class="kt-sticky-toolbar__item kt-sticky-toolbar__item--brand" data-toggle="kt-tooltip"#}
+{#            title="Layout Builder" data-placement="left">#}
+{#            <a href="https://keenthemes.com/metronic/preview/demo1/builder.html" target="_blank"><i#}
+{#                    class="flaticon2-gear"></i></a>#}
+{#        </li>#}
+{#        <li class="kt-sticky-toolbar__item kt-sticky-toolbar__item--warning" data-toggle="kt-tooltip"#}
+{#            title="Documentation" data-placement="left">#}
+{#            <a href="https://keenthemes.com/metronic/?page=docs" target="_blank"><i class="flaticon2-telegram-logo"></i></a>#}
+{#        </li>#}
+{#        <li class="kt-sticky-toolbar__item kt-sticky-toolbar__item--danger" id="kt_sticky_toolbar_chat_toggler"#}
+{#            data-toggle="kt-tooltip" title="Chat Example" data-placement="left">#}
+{#            <a href="#" data-toggle="modal" data-target="#kt_chat_modal"><i class="flaticon2-chat-1"></i></a>#}
+{#        </li>#}
+{#    </ul>#}
+
+<!-- end::Sticky Toolbar -->
+
+<!-- begin::Demo Panel -->
+
+
+<!-- end::Demo Panel -->
+
+<!--Begin:: Chat-->
+
+<div class="modal fade" id="kt_modal_4" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">添加分类</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                </button>
+            </div>
+            <div class="modal-body">
+                <form id="add">
+                    <div class="form-group">
+                        <label for="recipient-name" class="form-control-label">分类名</label>
+                        <input type="text" class="form-control" name="cname">
+                    </div>
+
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary" @click="addit()">添加</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="edit" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">编辑分类</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                </button>
+            </div>
+            <div class="modal-body">
+                <form id="editit">
+                    <div class="form-group">
+                        <label for="recipient-name" class="form-control-label">分类名</label>
+                        <input type="text" class="form-control" hidden name="cid" v-model="cid">
+                        <input type="text" class="form-control" name="cname" v-model="catename">
+                    </div>
+
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary" @click="saveit()">保存</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!--ENd:: Chat-->
+<script>
+    cateAdd = new Vue({
+        el: "#kt_modal_4",
+        methods: {
+            addit: function () {
+                $.ajax({
+                    type: "POST",
+                    url: "../api/cateadd",
+                    dataType: "json",
+                    data: $('#add').serialize(),// 要提交的表单
+                    success: function (msg) {
+                        if (msg.code == "1") {
+                                                        $("#kt_modal_4").modal('hide');
+
+                            layer.msg(msg.message, {icon: 1}, function () {
+                                // window.parent.location.reload();
+                                // var index = parent.layer.getFrameIndex(window.name);
+                                // parent.layer.close(index);
+                            });
+                               $.ajax({
+                        type: "GET",
+                        url: "../api/catelist",
+                        dataType: "json",
+                        success: function (msg) {
+                            cateList.lists=msg.data
+                        }
+                    });
+                            // location.href ="user-all.php";
+                        } else if (msg.code == "-1") {
+                            layer.msg(msg.message, {icon: 2});
+                        }
+                    }
+                });
+            }
+        }
+    })
+    cateList = new Vue({
+        el: "#tablelist",
+        data: {
+            lists: []
+        },
+        created() {
+            fetch("../api/catelist")
+                .then(reponse => reponse.json())
+                .then(json => {
+                    this.lists = json.data;
+                })
+        },
+        methods: {
+            delit:function (id,index) {
+                layer.confirm('确认删除此条记录？此操作不可逆', {
+                    btn: ['确定', '取消'] //按钮
+                }, function () {
+                    $.ajax({
+                        type: "POST",
+                        url: "../api/catedel",
+                        dataType: "json",
+                        data: {cid: id},// 要提交的表单
+                        success: function (msg) {
+                            if (msg.code == "1") {
+                                layer.msg(msg.message, {icon: 1}, function () {
+                                    // window.parent.location.reload();
+                                    // var index = parent.layer.getFrameIndex(window.name);
+                                    // parent.layer.close(index);
+
+                                });
+                                cateList.lists.splice(index, 1)
+                                // location.href ="user-all.php";
+                            } else if (msg.code == "-1") {
+                                layer.msg(msg.message, {icon: 2});
+                            }
+                        }
+                    });
+                })
+            },
+            editit:function (name,cid,index) {
+                editCate.catename=name;
+                editCate.cid=cid;
+                editCate.cateindex=index
+                $("#edit").modal({
+                                backdrop: 'static',
+                                keyboard: true
+
+                            });
+            }
+        }
+    })
+
+    editCate=new Vue({
+        el:"#edit",
+        data:{
+            catename:"",
+            cid:"",
+            cateindex:""
+        },
+        methods:{
+            saveit:function () {
+                $.ajax({
+                    type: "POST",
+                    url: "../api/cateedit",
+                    dataType: "json",
+                    data: $('#editit').serialize(),// 要提交的表单
+                    success: function (msg) {
+                        if (msg.code == "1") {
+                            $("#edit").modal('hide');
+                            layer.msg(msg.message, {icon: 1}, function () {
+                            });
+
+                          cateList.lists.splice(editCate.cateindex,1,{'cid':editCate.cid,'cname':editCate.catename})
+                        } else if (msg.code == "-1") {
+                            layer.msg(msg.message, {icon: 2});
+                        }
+                    }
+                });
+            }
+        }
+    })
+    searchit=new Vue({
+        el:"#searchit",
+        data:{
+            cname:""
+        },
+        watch:{
+            cname(val){
+                this.searchit(val)
+            }
+        },
+        methods:{
+            searchit:function (val) {
+                $.ajax({
+                        type: "POST",
+                        url: "../api/catequery",
+                        dataType: "json",
+                        data: {cname: val},// 要提交的表单
+                        success: function (msg) {
+                            if (msg.code == "1") {
+                                cateList.lists=msg.data
+                            } else {
+                                layer.msg("服务器错误", {icon: 2});
+                            }
+                        }
+                    });
+            }
+        }
+
+    })
+</script>
+<!-- begin::Global Config(global config for global JS sciprts) -->
+{% include "footer.html" %}
+
+</body>
+
+<!-- end::Body -->
+</html>
